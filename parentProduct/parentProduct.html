@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Parent Component">
+     
+<div class="demo-only demo-only--sizing slds-grid slds-wrap">
+     <div class="slds-size_1-of-2 slds-align_absolute-center">
+        <lightning-card  variant="Narrow"  title="Product List" icon-name="standard:account">
+            <c-child-product product-list={productList} onselection={selectedProductHandler}></c-child-product>
+        </lightning-card>
+     </div>
+      <div class="slds-size_1-of-2">
+        <template if:true={selectedProduct}>
+            <div class="card">
+                <div>
+                    <img src={selectedProduct.imgUrl} alt="Avatar" style="max-width:35%;max-height:40%;"/>
+                </div>
+                <div class="container">
+                    <p><strong>Product Name:</strong> {selectedProduct.name}</p>
+                    <p><strong>Product Cost:</strong> {selectedProduct.productCost}</p>
+                </div>
+            </div>
+        </template>
+      </div>
+
+</div>
+    </lightning-card>
+    </template>
